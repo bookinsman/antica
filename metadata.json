@@ -1,0 +1,7 @@
+{
+  "name": "Antica Heritage",
+  "description": "A high-end 'Modern Heritage' coffee lifestyle platform featuring artisanal roasts, magazine-style layouts, and an AI-powered coffee sommelier.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
