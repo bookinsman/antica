@@ -20,12 +20,13 @@ const Navbar: React.FC = () => {
               <a href="#shop" className="hover:text-terracotta transition-all">{t('navCollections')}</a>
               <a href="#roastery" className="hover:text-terracotta transition-all">{t('navProcess')}</a>
               <a href="#stories" className="hover:text-terracotta transition-all">{t('navHistory')}</a>
+              <Link to="/about" className="hover:text-terracotta transition-all">{t('navAbout')}</Link>
             </div>
           </div>
           
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-3">
-              {(['LT', 'EN', 'RU'] as Language[]).map(lang => (
+              {(['EN'] as Language[]).map(lang => (
                 <button 
                   key={lang}
                   onClick={() => setLanguage(lang)}
@@ -53,6 +54,7 @@ const Navbar: React.FC = () => {
           <a href="#shop" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>{t('navCollections')}</a>
           <a href="#roastery" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>{t('navTheProcess')}</a>
           <a href="#stories" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>{t('navTriesteHeritage')}</a>
+          <Link to="/about" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>{t('navAbout')}</Link>
         </div>
       </div>
     </nav>

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 
 const EditorialSection: React.FC = () => {
@@ -10,13 +11,8 @@ const EditorialSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
           <div className="relative aspect-video overflow-hidden">
-             <img 
-               src="https://images.unsplash.com/photo-1497933321021-949f224971c7?auto=format&fit=crop&q=80&w=1200" 
-               alt="Roastery Detail"
-               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-             />
-             <div className="absolute top-8 left-8 bg-paper p-4 border border-heritageBlack/10">
-                <span className="text-xs uppercase tracking-widest font-bold">{t('editorialVolume')}</span>
+             <div className="absolute inset-0 bg-gradient-to-t from-heritageBlack/60 to-transparent flex items-end p-8">
+                <h3 className="text-white font-serif text-xl italic leading-tight">{t('instagramGalleryTitle')}</h3>
              </div>
           </div>
         </div>
@@ -40,6 +36,15 @@ const EditorialSection: React.FC = () => {
                   <p className="text-sm font-light text-heritageBlack/60">{t('editorialPoint2Body')}</p>
                 </div>
              </div>
+          </div>
+
+          <div className="mt-10">
+            <Link
+              to="/about"
+              className="inline-flex items-center justify-center px-8 py-4 bg-heritageBlack text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-terracotta transition-all"
+            >
+              {t('editorialCta')}
+            </Link>
           </div>
         </div>
       </div>

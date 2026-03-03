@@ -6,10 +6,10 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
   
   return (
-    <section className="relative h-[85vh] w-full overflow-hidden flex items-center bg-heritageBlack">
+    <section className="relative h-[85vh] w-screen overflow-hidden flex items-center bg-heritageBlack">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://i.postimg.cc/VNMNhSPH/deeznutz1-ai-generated-8703170-1280.jpg" 
+          src="https://i.postimg.cc/L5yxZpnT/Gemini-Generated-Image-mnoqu5mnoqu5mnoq.png" 
           alt="Ancient Wood-Fired Roasting" 
           className="w-full h-full object-cover brightness-[0.6] opacity-90"
         />
@@ -26,8 +26,8 @@ const Hero: React.FC = () => {
           
           <div className="mb-12 overflow-hidden">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif leading-tight text-white">
-              <span className="font-light">{t('heroTitle').split('.')[0]}</span>
-              <span className="font-black text-terracotta">. {t('heroTitle').split('.')[1]}</span>
+              <span className="font-light">{t('heroTitleLine1')}</span>
+              <span className="font-black text-terracotta"> {t('heroTitleLine2')}</span>
             </h1>
           </div>
           
@@ -35,6 +35,21 @@ const Hero: React.FC = () => {
             <p className="text-lg md:text-xl font-serif italic text-white/85 leading-relaxed max-w-3xl">
               {t('heroSubtitle')}
             </p>
+          </div>
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <a
+              href="#shop"
+              className="inline-flex items-center justify-center px-8 py-4 bg-terracotta text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-heritageBlack transition-all"
+            >
+              {t('heroCtaPrimary')}
+            </a>
+            <a
+              href="#roastery"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-black text-xs uppercase tracking-[0.2em] border border-white/20 hover:bg-white hover:text-heritageBlack transition-all"
+            >
+              {t('heroCtaSecondary')}
+            </a>
           </div>
         </div>
       </div>
