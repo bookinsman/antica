@@ -32,14 +32,17 @@ const MainContent = () => {
           <Routes>
             <Route path="/" element={
               <>
-                <section id="shop" className="py-12 md:py-32 border-b border-heritageBlack/10">
-                  <div className="flex flex-col md:flex-row justify-between items-baseline mb-24 gap-8">
-                    <div className="max-w-xl">
-                      <h2 className="text-6xl md:text-8xl font-serif font-black italic mb-8 tracking-tighter">{t('seasonalRoasts')}</h2>
-                      <p className="text-xl md:text-3xl font-serif italic text-heritageBlack/40 leading-tight">
-                        Caffè ATT – autentiški mišiniai iš Triesto, gimstantys meistrų rankose virš buko ugnies.
-                      </p>
-                    </div>
+                <section id="shop" className="py-16 md:py-28 border-b border-heritageBlack/10">
+                  <div className="mb-16 md:mb-20 text-center">
+                    <h2 className="text-6xl md:text-8xl font-serif font-black italic mb-6 tracking-tighter">
+                      {t('seasonalRoasts')}
+                    </h2>
+                    <p className="text-xl md:text-3xl font-serif italic text-heritageBlack/50 leading-tight max-w-4xl mx-auto">
+                      <span className="relative inline-block px-2">
+                        <span className="absolute inset-0 bg-terracotta/10 -skew-y-1 rounded-sm" />
+                        <span className="relative">{t('seasonalDescription')}</span>
+                      </span>
+                    </p>
                   </div>
                   <ProductGrid 
                     products={PRODUCTS} 

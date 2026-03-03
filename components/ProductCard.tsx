@@ -18,14 +18,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
         {product.limited && (
           <div className="absolute top-6 right-6 z-10 w-16 h-16 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm">
              <div className="text-[8px] font-black text-white uppercase text-center rotate-[-15deg] tracking-tighter">
-               Wood-Fired<br/>Small Lot
+               {t('woodFiredSmallLotLine1')}<br/>{t('woodFiredSmallLotLine2')}
              </div>
           </div>
         )}
         <img 
           src={product.image} 
           alt={product.name} 
-          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale group-hover:grayscale-0 opacity-80"
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-heritageBlack/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

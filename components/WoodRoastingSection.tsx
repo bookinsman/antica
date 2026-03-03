@@ -11,7 +11,7 @@ const WoodRoastingSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-12">
             <div>
-              <span className="text-xs uppercase tracking-[0.4em] font-bold text-terracotta mb-4 block">Our Ritual</span>
+              <span className="text-xs uppercase tracking-[0.4em] font-bold text-terracotta mb-4 block">{t('ourRitual')}</span>
               <h2 className="text-5xl md:text-7xl font-serif italic mb-8 leading-tight">Kodėl buko mediena?</h2>
               <p className="text-xl text-heritageBlack/70 font-light leading-relaxed">
                 Antica Tostatura Triestina naudoja XVIII amžiaus techniką – kiekviena pupelė skrudinama atskirai virš buko malkų ugnies. Skirtingai nei dujiniai skrudintuvai, medžio ugnis suteikia pupelėms unikalų tankį ir natūralų saldumą, kurį Triesto meistrai saugojo šimtmečius.

@@ -1,6 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI, Type } from "@google/genai";
+import { useLanguage } from '../LanguageContext';
 
 interface SommelierModalProps {
   isOpen: boolean;
@@ -14,10 +15,11 @@ interface CoffeeRecommendation {
 }
 
 const SommelierModal: React.FC<SommelierModalProps> = ({ isOpen, onClose }) => {
+  const { t } = useLanguage();
   const [recommendation, setRecommendation] = useState<CoffeeRecommendation | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [mood, setMood] = useState('Productive');
-  const [time, setTime] = useState('Morning');
+  const [mood, setMood] = useState('productive');
+  const [time, setTime] = useState('morning');
 
   const getAIRecommendation = async () => {
     setIsLoading(true);
@@ -72,9 +74,9 @@ const SommelierModal: React.FC<SommelierModalProps> = ({ isOpen, onClose }) => {
       console.error("AI Error:", error);
       // Adjusted fallback to use actual products from constants.ts
       setRecommendation({
-        title: "The Sophisticated Choice",
-        coffeeName: "Black Velvet",
-        description: "A dark, resonant roast perfect for the contemplative hours of the late afternoon, offering notes of molasses and dark chocolate."
+        title: t('sommelierFallbackTitle'),
+        coffeeName: t('sommelierFallbackCoffeeName'),
+        description: t('sommelierFallbackDescription')
       });
     } finally {
       setIsLoading(false);
@@ -95,38 +97,38 @@ const SommelierModal: React.FC<SommelierModalProps> = ({ isOpen, onClose }) => {
             ✕
           </button>
           
-          <h2 className="text-3xl font-serif italic mb-2">AI Sommelier</h2>
+          <h2 className="text-3xl font-serif italic mb-2">{t('sommelierTitle')}</h2>
           <p className="text-sm text-heritageBlack/60 mb-8 font-light leading-relaxed">
-            Allow our digital connoisseur to curate your ritual based on your current state of being.
+            {t('sommelierSubtitle')}
           </p>
           
           {!recommendation ? (
             <div className="space-y-8">
               <div>
-                <label className="text-[10px] uppercase tracking-widest font-bold mb-4 block">Current Mood</label>
+                <label className="text-[10px] uppercase tracking-widest font-bold mb-4 block">{t('sommelierMoodLabel')}</label>
                 <div className="flex flex-wrap gap-2">
-                  {['Productive', 'Contemplative', 'Social', 'Restorative'].map(m => (
+                  {['productive', 'contemplative', 'social', 'restorative'].map(m => (
                     <button 
                       key={m}
                       onClick={() => setMood(m)}
                       className={`px-4 py-2 text-[10px] uppercase tracking-widest font-bold border ${mood === m ? 'bg-heritageBlack text-paper border-heritageBlack' : 'border-heritageBlack/10 hover:border-heritageBlack'} transition-all`}
                     >
-                      {m}
+                      {t(`sommelierMood_${m}`)}
                     </button>
                   ))}
                 </div>
               </div>
               
               <div>
-                <label className="text-[10px] uppercase tracking-widest font-bold mb-4 block">Time of Day</label>
+                <label className="text-[10px] uppercase tracking-widest font-bold mb-4 block">{t('sommelierTimeLabel')}</label>
                 <div className="flex flex-wrap gap-2">
-                  {['Morning', 'Mid-Day', 'Evening'].map(t => (
+                  {['morning', 'midday', 'evening'].map(timeOption => (
                     <button 
-                      key={t}
-                      onClick={() => setTime(t)}
-                      className={`px-4 py-2 text-[10px] uppercase tracking-widest font-bold border ${time === t ? 'bg-heritageBlack text-paper border-heritageBlack' : 'border-heritageBlack/10 hover:border-heritageBlack'} transition-all`}
+                      key={timeOption}
+                      onClick={() => setTime(timeOption)}
+                      className={`px-4 py-2 text-[10px] uppercase tracking-widest font-bold border ${time === timeOption ? 'bg-heritageBlack text-paper border-heritageBlack' : 'border-heritageBlack/10 hover:border-heritageBlack'} transition-all`}
                     >
-                      {t}
+                      {t(`sommelierTime_${timeOption}`)}
                     </button>
                   ))}
                 </div>
@@ -137,7 +139,7 @@ const SommelierModal: React.FC<SommelierModalProps> = ({ isOpen, onClose }) => {
                 disabled={isLoading}
                 className="w-full bg-terracotta text-white py-4 uppercase tracking-widest text-xs font-bold hover:bg-heritageBlack transition-all disabled:opacity-50"
               >
-                {isLoading ? 'Curating your selection...' : 'Consult Sommelier'}
+                {isLoading ? t('sommelierLoading') : t('sommelierCta')}
               </button>
             </div>
           ) : (
@@ -159,13 +161,13 @@ const SommelierModal: React.FC<SommelierModalProps> = ({ isOpen, onClose }) => {
                   onClick={() => setRecommendation(null)}
                   className="flex-1 py-4 border border-heritageBlack text-[10px] uppercase tracking-widest font-bold hover:bg-heritageBlack hover:text-white transition-all"
                 >
-                  Start Over
+                  {t('sommelierStartOver')}
                 </button>
                 <button 
                   onClick={onClose}
                   className="flex-1 py-4 bg-heritageBlack text-white text-[10px] uppercase tracking-widest font-bold hover:bg-terracotta transition-all"
                 >
-                  Shop Now
+                  {t('sommelierShopNow')}
                 </button>
               </div>
             </div>

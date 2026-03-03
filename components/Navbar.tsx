@@ -5,7 +5,7 @@ import { useLanguage } from '../LanguageContext';
 import { Language } from '../types';
 
 const Navbar: React.FC = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -17,9 +17,9 @@ const Navbar: React.FC = () => {
               Caffè <span className="italic font-normal">ATT</span>
             </Link>
             <div className="hidden lg:flex space-x-8 text-[10px] uppercase tracking-widest font-black opacity-40">
-              <a href="#shop" className="hover:text-terracotta transition-all">Collections</a>
-              <a href="#roastery" className="hover:text-terracotta transition-all">Process</a>
-              <a href="#stories" className="hover:text-terracotta transition-all">History</a>
+              <a href="#shop" className="hover:text-terracotta transition-all">{t('navCollections')}</a>
+              <a href="#roastery" className="hover:text-terracotta transition-all">{t('navProcess')}</a>
+              <a href="#stories" className="hover:text-terracotta transition-all">{t('navHistory')}</a>
             </div>
           </div>
           
@@ -50,9 +50,9 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu */}
       <div className={`lg:hidden overflow-hidden transition-all duration-500 ${isMenuOpen ? 'max-h-screen border-b border-heritageBlack/10' : 'max-h-0'}`}>
         <div className="px-6 py-10 space-y-6 bg-paper text-center">
-          <a href="#shop" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>Collections</a>
-          <a href="#roastery" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>The Process</a>
-          <a href="#stories" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>Trieste Heritage</a>
+          <a href="#shop" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>{t('navCollections')}</a>
+          <a href="#roastery" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>{t('navTheProcess')}</a>
+          <a href="#stories" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>{t('navTriesteHeritage')}</a>
         </div>
       </div>
     </nav>

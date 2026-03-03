@@ -20,12 +20,12 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
   const SensoryBar = ({ label, value, max = 5 }: { label: string, value: number, max?: number }) => (
     <div className="mb-6">
       <div className="flex justify-between items-center mb-2">
-        <span className="text-[10px] uppercase tracking-widest font-black text-heritageBlack/40">{label}</span>
-        <span className="text-[10px] font-black">{value}/{max}</span>
+        <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-600">{label}</span>
+        <span className="text-xs font-medium text-gray-700">{value}/{max}</span>
       </div>
-      <div className="h-1 w-full bg-heritageBlack/5 relative overflow-hidden">
+      <div className="h-1.5 w-full bg-gray-200 relative overflow-hidden rounded-full">
         <div 
-          className="absolute top-0 left-0 h-full bg-terracotta transition-all duration-1000" 
+          className="absolute top-0 left-0 h-full bg-terracotta transition-all duration-1000 rounded-full" 
           style={{ width: `${(value / max) * 100}%` }}
         />
       </div>
@@ -45,53 +45,53 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
-          <div className={`relative h-[50vh] lg:h-full bg-heritageBlack flex items-center justify-center p-12 overflow-hidden`}>
+          <div className={`relative h-[40vh] lg:h-full bg-heritageBlack flex items-center justify-center p-8 overflow-hidden`}>
              <img 
                src={product.image} 
                alt={product.name} 
-               className="w-full h-full object-cover opacity-60 grayscale scale-105"
+               className="w-full h-full object-contain opacity-90 scale-100 transition-transform hover:scale-105"
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-heritageBlack via-transparent to-transparent"></div>
+             <div className="absolute inset-0 bg-gradient-to-t from-heritageBlack/30 via-transparent to-transparent"></div>
              <div className="absolute bottom-12 left-12">
-                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-terracotta mb-2 block">TRIESTE • ITALY</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-terracotta mb-2 block">{t('triesteItaly')}</span>
                 <h3 className="text-3xl font-serif font-black italic text-white">Caffè ATT</h3>
              </div>
           </div>
 
-          <div className="p-10 md:p-20 lg:p-24 flex flex-col justify-center bg-paper">
-            <span className="text-xs font-black uppercase tracking-[0.4em] text-terracotta mb-6">{product.category}</span>
-            <h2 className="text-6xl md:text-8xl font-serif font-black mb-10 leading-[0.8] tracking-tighter">{product.name}</h2>
+          <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-white max-h-[100vh] overflow-y-auto">
+            <span className="text-sm font-medium uppercase tracking-[0.2em] text-terracotta mb-4">{product.category}</span>
+            <h2 className="text-2xl md:text-3xl font-medium mb-6 leading-tight">{product.name}</h2>
             
-            <p className="text-2xl font-serif italic text-heritageBlack/70 mb-16 leading-relaxed border-l-4 border-terracotta pl-10">
+            <p className="text-sm md:text-base text-gray-700 mb-8 leading-relaxed border-l-3 border-terracotta pl-4">
               "{product.description}"
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <div>
-                <h4 className="text-[10px] font-black uppercase tracking-widest mb-10 text-heritageBlack/30">Origins & Ritual</h4>
-                <div className="space-y-6 font-serif italic text-lg">
+                <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-4 text-gray-500">{t('originsRitual')}</h4>
+                <div className="space-y-3 text-sm">
                   <div>
-                    <span className="text-[9px] font-black uppercase text-terracotta block mb-1">Terroir</span>
-                    <span>{product.origin}</span>
+                    <span className="text-xs font-medium uppercase text-terracotta block mb-1">{t('terroir')}</span>
+                    <span className="text-gray-700">{product.origin}</span>
                   </div>
                   <div>
-                    <span className="text-[9px] font-black uppercase text-terracotta block mb-1">Process</span>
-                    <span>{product.process}</span>
+                    <span className="text-xs font-medium uppercase text-terracotta block mb-1">{t('process')}</span>
+                    <span className="text-gray-700">{product.process}</span>
                   </div>
                 </div>
               </div>
               
               <div>
-                <h4 className="text-[10px] font-black uppercase tracking-widest mb-10 text-heritageBlack/30">Profile</h4>
+                <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-4 text-gray-500">{t('profile')}</h4>
                 <SensoryBar label={t('intensity')} value={product.profile.intensity} max={10} />
-                <SensoryBar label="Body" value={product.profile.body} />
-                <SensoryBar label="Acidity" value={product.profile.acidity} />
+                <SensoryBar label={t('body')} value={product.profile.body} />
+                <SensoryBar label={t('acidity')} value={product.profile.acidity} />
               </div>
             </div>
 
             <button 
               onClick={onClose}
-              className="w-full py-6 bg-heritageBlack text-white uppercase tracking-[0.3em] text-xs font-black hover:bg-terracotta transition-all shadow-2xl"
+              className="w-full py-4 bg-heritageBlack text-white uppercase tracking-[0.15em] text-xs font-medium hover:bg-terracotta transition-all"
             >
               {t('back')}
             </button>
