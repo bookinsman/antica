@@ -52,16 +52,13 @@ const AboutPage: React.FC = () => {
       <section className="py-12 md:py-16">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-7">
-            <div className="relative aspect-video overflow-hidden">
+            <div className="relative aspect-[9/16] overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff?auto=format&fit=crop&q=80&w=1400"
+                src="https://i.postimg.cc/gJk1rpTM/antica_tostatura.jpg"
                 alt={t('aboutImageAlt')}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full object-cover transition-all duration-1000"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-heritageBlack/50 via-heritageBlack/10 to-transparent" />
-              <div className="absolute bottom-8 left-8 bg-paper p-4 border border-heritageBlack/10">
-                <span className="text-xs uppercase tracking-widest font-bold">{t('aboutImageBadge')}</span>
-              </div>
             </div>
           </div>
 
@@ -71,7 +68,7 @@ const AboutPage: React.FC = () => {
             </h2>
 
             <div className="space-y-6">
-              {[1, 2, 3, 4, 5].map((i) => (
+              {[1, 2, 3, 4, 5, 6].map((i) => (
                 <div key={i} className="border-l-2 border-terracotta pl-5 py-1">
                   <h3 className="text-xs uppercase tracking-widest font-bold mb-2">
                     {t(`storySection${i}Title`)}

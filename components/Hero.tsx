@@ -4,6 +4,12 @@ import { useLanguage } from '../LanguageContext';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   
   return (
     <section className="relative h-[85vh] w-screen overflow-hidden flex items-center bg-heritageBlack">
@@ -41,18 +47,20 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <a
-              href="#shop"
+            <button
+              type="button"
+              onClick={() => scrollToSection('shop')}
               className="inline-flex items-center justify-center px-8 py-4 bg-terracotta text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-heritageBlack transition-all"
             >
               {t('heroCtaPrimary')}
-            </a>
-            <a
-              href="#roastery"
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('b2b')}
               className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-black text-xs uppercase tracking-[0.2em] border border-white/20 hover:bg-white hover:text-heritageBlack transition-all"
             >
               {t('heroCtaSecondary')}
-            </a>
+            </button>
           </div>
         </div>
       </div>

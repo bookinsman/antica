@@ -1,9 +1,21 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../LanguageContext';
 
 const Footer: React.FC = () => {
   const { t } = useLanguage();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className="bg-gradient-to-b from-gray-50 to-white border-t border-terracotta/10">
@@ -103,6 +115,25 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Scroll-to-top button */}
+      {showScrollTop && (
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 p-3 bg-terracotta text-white rounded-full shadow-lg hover:bg-heritageBlack transition-all duration-300 group"
+          aria-label="Scroll to top"
+        >
+          <svg
+            className="w-5 h-5 transform group-hover:-translate-y-0.5 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
+      )}
     </footer>
   );
 };

@@ -1,14 +1,12 @@
 
-import React, { useState } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ProductGrid from './components/ProductGrid';
 import Footer from './components/Footer';
-import EditorialSection from './components/EditorialSection';
 import SingleProductView from './components/SingleProductView';
 import AnnouncementBar from './components/AnnouncementBar';
 import Marquee from './components/Marquee';
-import WoodRoastingSection from './components/WoodRoastingSection';
 import AboutPage from './components/AboutPage';
 import Hero from './components/Hero';
 import BalticsB2BSection from './components/BalticsB2BSection';
@@ -20,6 +18,20 @@ const MainContent = () => {
   const { t } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [showMacinatoMoka, setShowMacinatoMoka] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const target = sessionStorage.getItem('scrollTarget');
+    if (!target) return;
+    if (location.pathname !== '/') return;
+
+    sessionStorage.removeItem('scrollTarget');
+    requestAnimationFrame(() => {
+      const el = document.getElementById(target);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-terracotta selection:text-white bg-paper overflow-x-hidden">
@@ -112,8 +124,6 @@ const MainContent = () => {
                     </div>
                   </div>
                 </section>
-                <WoodRoastingSection />
-                <EditorialSection />
               </div>
             </>
           } />

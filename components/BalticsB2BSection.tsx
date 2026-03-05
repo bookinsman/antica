@@ -6,7 +6,7 @@ const BalticsB2BSection: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 bg-white border-t border-heritageBlack/10">
+    <section id="b2b" className="py-24 bg-white border-t border-heritageBlack/10">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
