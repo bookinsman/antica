@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { Product } from '../types';
 import { useLanguage } from '../LanguageContext';
+import { computeIntensity } from '../coffeeProfile';
 
 interface SingleProductViewProps {
   product: Product;
@@ -11,13 +12,16 @@ interface SingleProductViewProps {
 
 const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose }) => {
   const { t } = useLanguage();
+  const intensity = computeIntensity(product.profile);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = 'auto'; };
   }, []);
 
-  const SensoryBar = ({ label, value, max = 5 }: { label: string, value: number, max?: number }) => (
+  const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, n));
+
+  const SensoryBar = ({ label, value, max }: { label: string, value: number, max: number }) => (
     <div className="mb-6">
       <div className="flex justify-between items-center mb-2">
         <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-600">{label}</span>
@@ -26,7 +30,7 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
       <div className="h-1.5 w-full bg-gray-200 relative overflow-hidden rounded-full">
         <div 
           className="absolute top-0 left-0 h-full bg-terracotta transition-all duration-1000 rounded-full" 
-          style={{ width: `${(value / max) * 100}%` }}
+          style={{ width: `${clamp((value / max) * 100, 0, 100)}%` }}
         />
       </div>
     </div>
@@ -83,9 +87,10 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
               
               <div>
                 <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-4 text-gray-500">{t('profile')}</h4>
-                <SensoryBar label={t('intensity')} value={product.profile.intensity} max={10} />
-                <SensoryBar label={t('body')} value={product.profile.body} />
-                <SensoryBar label={t('acidity')} value={product.profile.acidity} />
+                <SensoryBar label={t('intensity')} value={intensity} max={10} />
+                <SensoryBar label={t('body')} value={product.profile.body} max={10} />
+                <SensoryBar label={t('acidity')} value={product.profile.acidity} max={10} />
+                <SensoryBar label={t('crema')} value={product.profile.crema} max={10} />
               </div>
             </div>
 

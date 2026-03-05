@@ -12,6 +12,9 @@ const Hero: React.FC = () => {
           src="https://i.postimg.cc/L5yxZpnT/Gemini-Generated-Image-mnoqu5mnoqu5mnoq.png" 
           alt="Ancient Wood-Fired Roasting" 
           className="w-full h-full object-cover brightness-[0.6] opacity-90"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-heritageBlack/40 via-heritageBlack/20 to-heritageBlack/30"></div>
       </div>

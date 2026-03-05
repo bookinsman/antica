@@ -33,9 +33,11 @@ const WoodRoastingSection: React.FC = () => {
           <div className="relative">
              <div className="aspect-[3/4] overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1541173109020-9c5d8a48e169?auto=format&fit=crop&q=80&w=1200" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
-                  alt="Process"
+                  src="https://i.postimg.cc/pd09sbdc/Untitled-design-2026-03-04T143548-064.png" 
+                  className="w-full h-full object-cover transition-all duration-1000" 
+                  alt="Untitled-design-2026-03-04T143548-064"
+                  loading="lazy"
+                  decoding="async"
                 />
              </div>
              <div className="absolute -bottom-10 -left-10 bg-heritageBlack p-12 hidden md:block">

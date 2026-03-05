@@ -1,19 +1,32 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 
 const EditorialSection: React.FC = () => {
   const { t } = useLanguage();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const stories = [
+    { titleKey: 'story1Title', img: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400" },
+    { titleKey: 'story2Title', img: "https://images.unsplash.com/photo-1544787210-2211d44b505b?auto=format&fit=crop&w=400" },
+    { titleKey: 'story3Title', img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400" }
+  ];
+  
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % stories.length);
+  };
+  
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + stories.length) % stories.length);
+  };
 
   return (
     <section id="stories" className="py-20">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
           <div className="relative aspect-video overflow-hidden">
-             <div className="absolute inset-0 bg-gradient-to-t from-heritageBlack/60 to-transparent flex items-end p-8">
-                <h3 className="text-white font-serif text-xl italic leading-tight">{t('instagramGalleryTitle')}</h3>
-             </div>
+             <img src='https://i.postimg.cc/C5pfqC1X/Untitled-design-2026-03-04T144618-006.png' border='0' alt='Untitled-design-2026-03-04T144618-006' className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </div>
         </div>
         <div className="lg:col-span-5 flex flex-col justify-center">
@@ -49,21 +62,8 @@ const EditorialSection: React.FC = () => {
         </div>
       </div>
       
-      <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-1 grid-border border border-heritageBlack/10">
-         {[
-           { titleKey: 'story1Title', img: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400" },
-           { titleKey: 'story2Title', img: "https://images.unsplash.com/photo-1544787210-2211d44b505b?auto=format&fit=crop&w=400" },
-           { titleKey: 'story3Title', img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400" }
-         ].map((story, i) => (
-           <div key={i} className="group relative aspect-square overflow-hidden cursor-pointer">
-             <img src={story.img} alt={t(story.titleKey)} className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-700 opacity-80" />
-             <div className="absolute inset-0 bg-gradient-to-t from-heritageBlack/60 to-transparent flex items-end p-8">
-                <h3 className="text-white font-serif text-xl italic leading-tight">{t(story.titleKey)}</h3>
-             </div>
-           </div>
-         ))}
-      </div>
-    </section>
+            
+          </section>
   );
 };
 

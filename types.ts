@@ -1,9 +1,9 @@
 
 export interface SensoryProfile {
   intensity: number; // 1-10
-  body: number; // 1-5
-  acidity: number; // 1-5
-  crema: number; // 1-5
+  body: number; // 1-10
+  acidity: number; // 1-10
+  crema: number; // 1-10
 }
 
 export interface Product {

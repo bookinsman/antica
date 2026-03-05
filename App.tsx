@@ -11,13 +11,15 @@ import Marquee from './components/Marquee';
 import WoodRoastingSection from './components/WoodRoastingSection';
 import AboutPage from './components/AboutPage';
 import Hero from './components/Hero';
+import BalticsB2BSection from './components/BalticsB2BSection';
 import { LanguageProvider, useLanguage } from './LanguageContext';
 import { Product } from './types';
-import { PRODUCTS } from './constants';
+import { BEANS_250G, CAPSULES, MACINATO_MOKA_250G, PRODUCTS } from './constants';
 
 const MainContent = () => {
   const { t } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [showMacinatoMoka, setShowMacinatoMoka] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-terracotta selection:text-white bg-paper overflow-x-hidden">
@@ -44,11 +46,71 @@ const MainContent = () => {
                       </span>
                     </p>
                   </div>
-                  <ProductGrid 
-                    products={PRODUCTS} 
-                    onAddToCart={() => {}} 
-                    onSelectProduct={(product) => setSelectedProduct(product)} 
-                  />
+
+                  <div className="space-y-20 md:space-y-24">
+                    <div>
+                      <div className="mb-10 md:mb-12 pb-6 border-b border-heritageBlack/10">
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-black italic tracking-tight text-heritageBlack">
+                          1kg <span className="text-terracotta">Roasted Beans</span>
+                        </h3>
+                      </div>
+                      <ProductGrid
+                        products={PRODUCTS}
+                        onAddToCart={() => {}}
+                        onSelectProduct={(product) => setSelectedProduct(product)}
+                      />
+                    </div>
+
+                    <div>
+                      <div className="mb-10 md:mb-12 pb-6 border-b border-heritageBlack/10">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-black italic tracking-tight text-heritageBlack">
+                            250g <span className="text-terracotta">Coffee</span>
+                          </h3>
+                          <div className="flex items-center space-x-2">
+                            <button
+                              onClick={() => setShowMacinatoMoka(false)}
+                              className={`px-4 py-2 text-xs font-black uppercase tracking-widest transition-all duration-300 transform ${
+                                !showMacinatoMoka 
+                                  ? 'bg-terracotta text-white scale-105' 
+                                  : 'bg-heritageBlack/10 text-heritageBlack hover:bg-heritageBlack/20 hover:scale-105'
+                              }`}
+                            >
+                              Beans
+                            </button>
+                            <button
+                              onClick={() => setShowMacinatoMoka(true)}
+                              className={`px-4 py-2 text-xs font-black uppercase tracking-widest transition-all duration-300 transform ${
+                                showMacinatoMoka 
+                                  ? 'bg-terracotta text-white scale-105' 
+                                  : 'bg-heritageBlack/10 text-heritageBlack hover:bg-heritageBlack/20 hover:scale-105'
+                              }`}
+                            >
+                              Macinato Moka
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <ProductGrid
+                        products={showMacinatoMoka ? MACINATO_MOKA_250G : BEANS_250G}
+                        onAddToCart={() => {}}
+                        onSelectProduct={(product) => setSelectedProduct(product)}
+                      />
+                    </div>
+
+                    <div>
+                      <div className="mb-10 md:mb-12 pb-6 border-b border-heritageBlack/10">
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-black italic tracking-tight text-heritageBlack">
+                          <span className="text-terracotta">Capsules Nespresso</span>
+                        </h3>
+                      </div>
+                      <ProductGrid
+                        products={CAPSULES}
+                        onAddToCart={() => {}}
+                        onSelectProduct={(product) => setSelectedProduct(product)}
+                      />
+                    </div>
+                  </div>
                 </section>
                 <WoodRoastingSection />
                 <EditorialSection />
@@ -59,6 +121,7 @@ const MainContent = () => {
         </Routes>
       </main>
 
+      <BalticsB2BSection />
       <Footer />
       
       {selectedProduct && (

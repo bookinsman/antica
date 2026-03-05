@@ -2,6 +2,7 @@
 import React from 'react';
 import { Product } from '../types';
 import { useLanguage } from '../LanguageContext';
+import { computeIntensity } from '../coffeeProfile';
 
 interface ProductCardProps {
   product: Product;
@@ -11,6 +12,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
   const { t } = useLanguage();
+  const intensity = computeIntensity(product.profile);
 
   return (
     <div className="group flex flex-col h-full bg-paper hover:bg-white transition-all duration-700 cursor-pointer overflow-hidden" onClick={onSelect}>
@@ -57,7 +59,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
              <span className="text-heritageBlack/40">{t('intensity')}</span>
              <div className="flex space-x-0.5">
                 {[...Array(10)].map((_, i) => (
-                  <div key={i} className={`w-1.5 h-3 ${i < product.profile.intensity ? 'bg-heritageBlack' : 'bg-heritageBlack/10'}`}></div>
+                  <div key={i} className={`w-1.5 h-3 ${i < intensity ? 'bg-heritageBlack' : 'bg-heritageBlack/10'}`}></div>
                 ))}
              </div>
           </div>
