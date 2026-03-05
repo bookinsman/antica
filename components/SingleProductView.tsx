@@ -7,7 +7,6 @@ import { computeIntensity } from '../coffeeProfile';
 interface SingleProductViewProps {
   product: Product;
   onClose: () => void;
-  onAddToCart: () => void;
 }
 
 const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose }) => {
@@ -54,6 +53,7 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
                src={product.image} 
                alt={product.name} 
                className="w-full h-full object-contain opacity-90 scale-100 transition-transform hover:scale-105"
+               decoding="async"
              />
              <div className="absolute inset-0 bg-gradient-to-t from-heritageBlack/30 via-transparent to-transparent"></div>
              <div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8">

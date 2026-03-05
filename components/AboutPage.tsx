@@ -57,6 +57,8 @@ const AboutPage: React.FC = () => {
                 src="https://i.postimg.cc/gJk1rpTM/antica_tostatura.jpg"
                 alt={t('aboutImageAlt')}
                 className="w-full h-full object-cover transition-all duration-1000"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-heritageBlack/50 via-heritageBlack/10 to-transparent" />
             </div>

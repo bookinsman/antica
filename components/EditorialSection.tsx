@@ -26,7 +26,7 @@ const EditorialSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
           <div className="relative aspect-video overflow-hidden">
-             <img src='https://i.postimg.cc/C5pfqC1X/Untitled-design-2026-03-04T144618-006.png' border='0' alt='Untitled-design-2026-03-04T144618-006' className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+             <img src='https://i.postimg.cc/C5pfqC1X/Untitled-design-2026-03-04T144618-006.png' border='0' alt='Untitled-design-2026-03-04T144618-006' className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
           </div>
         </div>
         <div className="lg:col-span-5 flex flex-col justify-center">

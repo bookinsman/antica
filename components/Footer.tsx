@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
               </h3>
               <div className="w-16 h-0.5 bg-terracotta mb-6"></div>
               <div className="mb-4 flex justify-start">
-                <img src='https://i.postimg.cc/c43zRdJ6/t-(79).png' border='0' alt='t-(79)' className="h-24 object-contain" />
+                <img src='https://i.postimg.cc/c43zRdJ6/t-(79).png' border='0' alt='t-(79)' className="h-24 object-contain" loading="lazy" decoding="async" />
               </div>
             </div>
             <p className="text-sm text-gray-600 leading-relaxed mb-8 font-light">
