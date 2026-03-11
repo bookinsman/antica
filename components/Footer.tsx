@@ -18,90 +18,56 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-gray-50 to-white border-t border-terracotta/10">
-      {/* Decorative Element */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-terracotta to-transparent opacity-20"></div>
-      
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
-          
-          {/* Brand Column */}
-          <div className="lg:col-span-5">
-            <div className="mb-8">
-              <h3 className="text-3xl font-black tracking-tight text-gray-900 mb-2">
-                Caffè <span className="text-terracotta">ATT</span>
-              </h3>
-              <div className="w-16 h-0.5 bg-terracotta mb-6"></div>
-              <div className="mb-4 flex justify-start">
-                <img src='https://i.postimg.cc/c43zRdJ6/t-(79).png' border='0' alt='t-(79)' className="h-24 object-contain" loading="lazy" decoding="async" />
+    <>
+      <section className="bg-white border-t border-heritageBlack/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 md:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+            <div className="md:pr-12 md:border-r border-heritageBlack/10">
+              <p className="text-xs md:text-sm font-black uppercase tracking-[0.3em] text-terracotta mb-4">
+                {t('preFooterShopTitle')}
+              </p>
+              <p className="text-sm text-gray-600 leading-relaxed font-light mb-6 max-w-lg">
+                {t('preFooterShopBody')}
+              </p>
+              <div className="space-y-2">
+                <p className="text-sm font-bold text-gray-900">Koliziejus</p>
+                <p className="text-sm text-gray-600">{t('koliziejusAddress')}</p>
               </div>
-            </div>
-            <p className="text-sm text-gray-600 leading-relaxed mb-8 font-light">
-              {t('footerTagline')}
-            </p>
-            <div className="flex items-center space-x-6">
-              <span className="text-xs text-gray-400 tracking-widest font-medium">{t('since1892')}</span>
-              <div className="w-8 h-0.5 bg-terracotta/30"></div>
-            </div>
-          </div>
-
-          
-          {/* Where to Buy - Koliziejus */}
-          <div className="lg:col-span-4">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-terracotta mb-8">
-              {t('availableAt')}
-            </h4>
-            <div className="space-y-6">
-              <div className="bg-gradient-to-br from-terracotta/5 to-terracotta/10 p-6 rounded-xl border border-terracotta/20">
-                <div className="flex items-center mb-3">
-                  <div className="w-2 h-2 bg-terracotta rounded-full mr-3"></div>
-                  <h5 className="font-bold text-gray-900 text-lg">Koliziejus</h5>
-                </div>
-                <p className="text-sm text-gray-600 mb-4 leading-relaxed">{t('koliziejusAddress')}</p>
-                <a 
-                  href="https://koliziejus.com/produkto-kategorija/kava/" 
-                  target="_blank" 
+              <div className="mt-6">
+                <a
+                  href="https://koliziejus.com/produkto-kategorija/kava/"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-sm font-bold text-terracotta hover:text-heritageBlack transition-colors group"
+                  className="inline-flex items-center text-xs font-black uppercase tracking-[0.25em] text-heritageBlack hover:text-terracotta transition-colors group"
                 >
-                  {t('visitStore')} 
+                  {t('visitStore')}
                   <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>
               </div>
-              <p className="text-xs text-gray-500 leading-relaxed italic">
+              <p className="text-xs text-gray-500 leading-relaxed italic mt-8 max-w-lg">
                 {t('koliziejusNote')}
               </p>
             </div>
-          </div>
 
-          {/* B2B Partnership */}
-          <div className="lg:col-span-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-terracotta mb-8">
-              {t('b2bTitle')}
-            </h4>
-            <div className="space-y-6">
-              <p className="text-sm text-gray-600 leading-relaxed font-light">
+            <div>
+              <p className="text-xs md:text-sm font-black uppercase tracking-[0.3em] text-terracotta mb-4">
+                {t('preFooterBusinessTitle')}
+              </p>
+              <p className="text-sm text-gray-600 leading-relaxed font-light mb-6 max-w-lg">
                 {t('b2bDescription')}
               </p>
-              <a 
-                href="mailto:info@caffeatt.lt" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-heritageBlack text-white font-bold text-sm hover:bg-terracotta transition-all duration-300 group w-full sm:w-auto"
-              >
-                {t('partnerWithUs')} 
-                <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+              <p className="text-sm text-gray-700 leading-relaxed max-w-lg">
+                <span className="text-gray-500 italic">{t('b2bInquiryLine')}</span>{' '}
+                <a href="mailto:info@koliziejus.com" className="text-terracotta font-bold hover:underline">info@koliziejus.com</a>
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-200 bg-gray-50/50">
+      <footer className="border-t border-gray-200 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-xs text-gray-500 font-light">
@@ -114,27 +80,26 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll-to-top button */}
-      {showScrollTop && (
-        <button
-          type="button"
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-terracotta text-white rounded-full shadow-lg hover:bg-heritageBlack transition-all duration-300 group"
-          aria-label="Scroll to top"
-        >
-          <svg
-            className="w-5 h-5 transform group-hover:-translate-y-0.5 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        {showScrollTop && (
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 z-50 p-3 bg-terracotta text-white rounded-full shadow-lg hover:bg-heritageBlack transition-all duration-300 group"
+            aria-label="Scroll to top"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </button>
-      )}
-    </footer>
+            <svg
+              className="w-5 h-5 transform group-hover:-translate-y-0.5 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </button>
+        )}
+      </footer>
+    </>
   );
 };
 

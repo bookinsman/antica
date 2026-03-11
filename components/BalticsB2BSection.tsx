@@ -58,15 +58,9 @@ const BalticsB2BSection: React.FC = () => {
               </div>
 
               <div className="mt-10 pt-8 border-t border-heritageBlack/10">
-                <p className="text-sm text-heritageBlack/60 font-light leading-relaxed mb-6">
+                <p className="text-sm text-heritageBlack/60 font-light leading-relaxed">
                   {t('balticsClosing')}
                 </p>
-                <a
-                  href="mailto:caffeatt@info.com"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-heritageBlack text-white font-black text-xs uppercase tracking-[0.2em] hover:bg-terracotta transition-all w-full"
-                >
-                  {t('balticsCta')}
-                </a>
               </div>
             </div>
           </div>
