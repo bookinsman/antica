@@ -228,44 +228,44 @@ const Footer: React.FC = () => {
       <footer className="border-t border-gray-200 bg-heritageBlack text-white">
         {/* Contact Details Bar */}
         <div className="border-b border-white/10">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Phone */}
-              <div className="flex items-center justify-center md:justify-start gap-3">
-                <svg className="w-5 h-5 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <div>
-                  <p className="text-xs text-gray-400 mb-0.5">{t('footerPhone')}</p>
-                  <a href="tel:+37065554319" className="text-sm font-bold text-white hover:text-terracotta transition-colors">
-                    +370 655 54319
-                  </a>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="flex items-center gap-3 mb-1">
+                  <svg className="w-5 h-5 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <p className="text-xs text-gray-400">{t('footerPhone')}</p>
                 </div>
+                <a href="tel:+37065554319" className="text-sm font-bold text-white hover:text-terracotta transition-colors">
+                  +370 655 54319
+                </a>
               </div>
 
               {/* Email */}
-              <div className="flex items-center justify-center md:justify-start gap-3">
-                <svg className="w-5 h-5 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <div>
-                  <p className="text-xs text-gray-400 mb-0.5">{t('footerEmail')}</p>
-                  <a href="mailto:info@koliziejus.com" className="text-sm font-bold text-white hover:text-terracotta transition-colors">
-                    info@koliziejus.com
-                  </a>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="flex items-center gap-3 mb-1">
+                  <svg className="w-5 h-5 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <p className="text-xs text-gray-400">{t('footerEmail')}</p>
                 </div>
+                <a href="mailto:info@koliziejus.com" className="text-sm font-bold text-white hover:text-terracotta transition-colors break-all">
+                  info@koliziejus.com
+                </a>
               </div>
 
               {/* Working Hours */}
-              <div className="flex items-center justify-center md:justify-start gap-3">
-                <svg className="w-5 h-5 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <div>
-                  <p className="text-xs text-gray-400 mb-0.5">{t('footerWorkingHours')}</p>
-                  <p className="text-sm font-bold text-white">{t('footerHours')}</p>
-                  <p className="text-xs text-gray-400">{t('footerDays')}</p>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="flex items-center gap-3 mb-1">
+                  <svg className="w-5 h-5 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p className="text-xs text-gray-400">{t('footerWorkingHours')}</p>
                 </div>
+                <p className="text-sm font-bold text-white">{t('footerHours')}</p>
+                <p className="text-xs text-gray-400">{t('footerDays')}</p>
               </div>
             </div>
           </div>
@@ -273,12 +273,12 @@ const Footer: React.FC = () => {
 
         {/* Copyright Bar */}
         <div className="bg-heritageBlack/50">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 text-center md:text-left">
               <p className="text-xs text-gray-400 font-light">
                 © 2026 Caffè ATT. {t('allRightsReserved')}
               </p>
-              <div className="flex items-center space-x-6 text-xs text-gray-400">
+              <div className="flex items-center justify-center space-x-4 md:space-x-6 text-xs text-gray-400">
                 <a href="#" className="hover:text-terracotta transition-colors font-light">{t('privacy')}</a>
                 <span className="w-1 h-1 bg-terracotta/30 rounded-full"></span>
                 <a href="#" className="hover:text-terracotta transition-colors font-light">{t('terms')}</a>

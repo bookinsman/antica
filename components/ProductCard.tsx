@@ -60,11 +60,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
       </div>
       
       <div className="p-8 flex flex-col flex-grow">
-        <span className="text-[9px] font-black uppercase tracking-[0.3em] text-terracotta mb-4">
+        <span className="text-[9px] font-black uppercase tracking-[0.3em] text-terracotta mb-3">
           {product.category}
         </span>
-        
-        <h3 className="text-3xl font-serif font-black group-hover:text-terracotta transition-colors leading-tight mb-4 tracking-tighter">
+
+        <h3 className="text-2xl sm:text-3xl font-serif font-black group-hover:text-terracotta transition-colors leading-tight mb-3 tracking-tight break-words">
           {product.name}
         </h3>
         
