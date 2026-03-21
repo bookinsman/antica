@@ -1,9 +1,8 @@
 
 export interface SensoryProfile {
-  intensity: number; // 1-10
-  body: number; // 1-10
-  acidity: number; // 1-10
-  crema: number; // 1-10
+  bitterness: number; // 0-100%
+  acidity: number; // 0-100%
+  sweetness: number; // 0-100%
 }
 
 export interface Product {
@@ -14,6 +13,8 @@ export interface Product {
   originalPrice?: number;
   notes: string[];
   roast: string;
+  beanType: string;
+  intensityNumber: number;
   description: string;
   origin: string;
   process: string;

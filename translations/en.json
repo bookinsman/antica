@@ -101,7 +101,9 @@
   "balticsCta": "caffeatt@info.com",
 
   "viewDetails": "View Profile",
-  "intensity": "Intensity",
+  "bitterness": "Bitterness",
+  "acidity": "Acidity",
+  "sweetness": "Sweetness",
   "back": "Go Back",
   "addToCart": "Add to Cart",
   "outOfStock": "Out of Stock",
@@ -111,9 +113,6 @@
   "origin": "Origin",
   "process": "Process",
   "roast": "Roast",
-  "body": "Body",
-  "acidity": "Acidity",
-  "crema": "Crema",
 
   "aboutUs": "About Us",
   "companyDescription": "Authentic Trieste coffee roasted over beechwood. Represented in Lithuania by Koliziejus.",

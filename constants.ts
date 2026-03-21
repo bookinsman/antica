@@ -17,7 +17,7 @@ export const PRODUCTS: Product[] = [
     image: 'https://i.postimg.cc/3rV1H6sG/Nessun_Dorma.png',
     accentColor: 'bg-terracotta',
     limited: false,
-    profile: { intensity: 8, body: 8, acidity: 6, crema: 9 }
+    profile: { bitterness: 33, acidity: 33, sweetness: 33 }
   },
   {
     id: '2',
@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
     image: 'https://i.postimg.cc/FFWy9c3d/Risvegli.png',
     accentColor: 'bg-heritageBlack',
     limited: false,
-    profile: { intensity: 9, body: 9, acidity: 5, crema: 9 }
+    profile: { bitterness: 50, acidity: 0, sweetness: 50 }
   },
   {
     id: '3',
@@ -51,7 +51,7 @@ export const PRODUCTS: Product[] = [
     image: 'https://i.postimg.cc/v8khdjJL/Buonissimo.png',
     accentColor: 'bg-mustard',
     limited: false,
-    profile: { intensity: 10, body: 10, acidity: 4, crema: 10 }
+    profile: { bitterness: 65, acidity: 0, sweetness: 35 }
   },
   {
     id: '4',
@@ -68,7 +68,7 @@ export const PRODUCTS: Product[] = [
     image: 'https://i.postimg.cc/KcwfyV67/Organic_BIO.png',
     accentColor: 'bg-sage',
     limited: false,
-    profile: { intensity: 7, body: 6, acidity: 7, crema: 6 }
+    profile: { bitterness: 25, acidity: 40, sweetness: 35 }
   },
   {
     id: '5',
@@ -85,7 +85,7 @@ export const PRODUCTS: Product[] = [
     image: 'https://i.postimg.cc/qBSwdYPn/Nabucco.png',
     accentColor: 'bg-terracotta',
     limited: false,
-    profile: { intensity: 10, body: 9, acidity: 3, crema: 9 }
+    profile: { bitterness: 15, acidity: 35, sweetness: 50 }
   },
   {
     id: '6',
@@ -102,7 +102,7 @@ export const PRODUCTS: Product[] = [
     image: 'https://i.postimg.cc/bYWgjM76/Decaffeinate.png',
     accentColor: 'bg-mustard',
     limited: false,
-    profile: { intensity: 7, body: 7, acidity: 5, crema: 8 }
+    profile: { bitterness: 33, acidity: 33, sweetness: 33 }
   },
   {
     id: '7',
@@ -119,7 +119,7 @@ export const PRODUCTS: Product[] = [
     image: 'https://i.postimg.cc/hPmr4snV/Figaro.png',
     accentColor: 'bg-heritageBlack',
     limited: false,
-    profile: { intensity: 10, body: 10, acidity: 2, crema: 9 }
+    profile: { bitterness: 70, acidity: 0, sweetness: 30 }
   },
   {
     id: '8',
@@ -136,7 +136,7 @@ export const PRODUCTS: Product[] = [
     image: 'https://i.postimg.cc/wTNVx2zc/Rigoletto.png',
     accentColor: 'bg-sage',
     limited: false,
-    profile: { intensity: 8, body: 9, acidity: 6, crema: 9 }
+    profile: { bitterness: 80, acidity: 0, sweetness: 20 }
   }
 ];
 
@@ -187,15 +187,26 @@ export const BEANS_250G: Product[] = [
   })()
 ];
 
-export const CAPSULES: Product[] = [
+export const ALUMINIUM_MOKA_250G: Product[] = [
+  (() => {
+    const base = PRODUCTS.find((p) => p.name === 'Risvegli');
+    if (!base) throw new Error('Missing base product: Risvegli');
+    return {
+      ...base,
+      id: 'al-moka-1',
+      category: 'ALUMINIUM MOKA • 250g',
+      image: 'https://i.postimg.cc/nLK70Bk0/alium-RISVEGLI.png',
+      name: 'RISVEGLI'
+    };
+  })(),
   (() => {
     const base = PRODUCTS.find((p) => p.name === 'Nessun Dorma');
     if (!base) throw new Error('Missing base product: Nessun Dorma');
     return {
       ...base,
-      id: 'cap-1',
-      category: 'CAPSULES',
-      image: 'https://i.postimg.cc/50Shf6q0/NESSUN_DORMA_CAPSULE.png',
+      id: 'al-moka-2',
+      category: 'ALUMINIUM MOKA • 250g',
+      image: 'https://i.postimg.cc/43vtBV58/alium-NESUN-DOORMA.png',
       name: 'NESSUN DORMA'
     };
   })(),
@@ -204,32 +215,10 @@ export const CAPSULES: Product[] = [
     if (!base) throw new Error('Missing base product: Organic BIO');
     return {
       ...base,
-      id: 'cap-2',
-      category: 'CAPSULES',
-      image: 'https://i.postimg.cc/Vv3BTFrz/BIOLOGICO_CAPSULE.png',
+      id: 'al-moka-3',
+      category: 'ALUMINIUM MOKA • 250g',
+      image: 'https://i.postimg.cc/N08Tpm4d/alium-BIO.png',
       name: 'BIOLOGICO'
-    };
-  })(),
-  (() => {
-    const base = PRODUCTS.find((p) => p.name === 'Decaffeinate');
-    if (!base) throw new Error('Missing base product: Decaffeinate');
-    return {
-      ...base,
-      id: 'cap-3',
-      category: 'CAPSULES',
-      image: 'https://i.postimg.cc/DyXcGRHs/DECAFFEINATO_CAPSULE.png',
-      name: 'DECAFFEINATO'
-    };
-  })(),
-  (() => {
-    const base = PRODUCTS.find((p) => p.name === 'Risvegli');
-    if (!base) throw new Error('Missing base product: Risvegli');
-    return {
-      ...base,
-      id: 'cap-4',
-      category: 'CAPSULES',
-      image: 'https://i.postimg.cc/2SdFchCs/RISVEGLI_CAPSULE.png',
-      name: 'RISVEGLI'
     };
   })()
 ];

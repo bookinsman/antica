@@ -87,10 +87,9 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
               
               <div>
                 <h4 className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-2 sm:mb-4 text-gray-500">{t('profile')}</h4>
-                <SensoryBar label={t('intensity')} value={intensity} max={10} />
-                <SensoryBar label={t('body')} value={product.profile.body} max={10} />
-                <SensoryBar label={t('acidity')} value={product.profile.acidity} max={10} />
-                <SensoryBar label={t('crema')} value={product.profile.crema} max={10} />
+                <SensoryBar label={t('bitterness')} value={product.profile.bitterness} max={100} />
+                <SensoryBar label={t('acidity')} value={product.profile.acidity} max={100} />
+                <SensoryBar label={t('sweetness')} value={product.profile.sweetness} max={100} />
               </div>
             </div>
 

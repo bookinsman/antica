@@ -12,7 +12,7 @@ import Hero from './components/Hero';
 import BalticsB2BSection from './components/BalticsB2BSection';
 import { LanguageProvider, useLanguage } from './LanguageContext';
 import { Product } from './types';
-import { BEANS_250G, CAPSULES, MACINATO_MOKA_250G, PRODUCTS } from './constants';
+import { ALUMINIUM_MOKA_250G, BEANS_250G, MACINATO_MOKA_250G, PRODUCTS } from './constants';
 
 const MainContent = () => {
   const { t } = useLanguage();
@@ -110,19 +110,20 @@ const MainContent = () => {
                       />
                     </div>
 
-                    <div>
+                    <div className="mt-14 md:mt-16">
                       <div className="mb-10 md:mb-12 pb-6 border-b border-heritageBlack/10">
                         <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-black italic tracking-tight text-heritageBlack">
-                          <span className="text-terracotta">Capsules Nespresso</span>
+                          250g <span className="text-terracotta">Aluminium Moka</span>
                         </h3>
                       </div>
                       <ProductGrid
-                        products={CAPSULES}
+                        products={ALUMINIUM_MOKA_250G}
                         onAddToCart={() => {}}
                         onSelectProduct={(product) => setSelectedProduct(product)}
                       />
                     </div>
-                  </div>
+
+                                      </div>
                 </section>
               </div>
             </>
