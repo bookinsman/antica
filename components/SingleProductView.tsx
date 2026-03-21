@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { Product } from '../types';
 import { useLanguage } from '../LanguageContext';
-import { computeIntensity } from '../coffeeProfile';
 
 interface SingleProductViewProps {
   product: Product;
@@ -11,7 +10,6 @@ interface SingleProductViewProps {
 
 const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose }) => {
   const { t } = useLanguage();
-  const intensity = computeIntensity(product.profile);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -72,8 +70,35 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
               <div>
-                <h4 className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-2 sm:mb-4 text-gray-500">{t('originsRitual')}</h4>
+                <h4 className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-2 sm:mb-4 text-gray-500">Coffee Details</h4>
                 <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+                  <div>
+                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">Flavor Notes</span>
+                    <div className="flex flex-wrap gap-1 sm:gap-2">
+                      {product.notes.map(note => (
+                        <span key={note} className="text-xs sm:text-sm text-gray-700">
+                          {note}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">Intensity</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-gray-700 font-medium">{product.intensityNumber}/10</span>
+                      <div className="flex space-x-0.5">
+                         {[...Array(10)].map((_, i) => (
+                           <div key={i} className={`w-1.5 h-3 ${i < product.intensityNumber ? 'bg-terracotta' : 'bg-gray-300'}`}></div>
+                         ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">Bean Type</span>
+                    <span className="text-gray-700 font-medium border-l-2 border-terracotta pl-3">
+                      {product.beanType}
+                    </span>
+                  </div>
                   <div>
                     <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">{t('terroir')}</span>
                     <span className="text-gray-700">{product.origin}</span>

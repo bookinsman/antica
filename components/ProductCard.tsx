@@ -2,7 +2,6 @@
 import React from 'react';
 import { Product } from '../types';
 import { useLanguage } from '../LanguageContext';
-import { computeIntensity } from '../coffeeProfile';
 
 interface ProductCardProps {
   product: Product;
@@ -12,7 +11,6 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
   const { t } = useLanguage();
-  const intensity = computeIntensity(product.profile);
 
   return (
     <div className="group flex flex-col h-full bg-paper hover:bg-white transition-all duration-700 cursor-pointer overflow-hidden" onClick={onSelect}>
@@ -47,24 +45,28 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
           {product.name}
         </h3>
         
-        <div className="flex flex-wrap gap-2 mb-6">
-          {product.notes.map(note => (
-            <span key={note} className="text-[9px] uppercase tracking-widest font-black border border-heritageBlack/10 px-2 py-1 rounded-full opacity-40">
-              {note}
-            </span>
-          ))}
-        </div>
+        <p className="text-[10px] leading-relaxed text-heritageBlack/60 mb-6 line-clamp-2">
+          {product.shortDescription}
+        </p>
         
         <div className="mt-auto pt-6 border-t border-heritageBlack/5 space-y-3">
           <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-black">
-             <span className="text-heritageBlack/40">{t('intensity')}</span>
-             <div className="flex space-x-0.5">
-                {[...Array(10)].map((_, i) => (
-                  <div key={i} className={`w-1.5 h-3 ${i < intensity ? 'bg-heritageBlack' : 'bg-heritageBlack/10'}`}></div>
-                ))}
+             <span className="text-heritageBlack/40">Intensity</span>
+             <div className="flex items-center space-x-2">
+                <span className="text-heritageBlack">{product.intensityNumber}/10</span>
+                <div className="flex space-x-0.5">
+                   {[...Array(10)].map((_, i) => (
+                     <div key={i} className={`w-1.5 h-3 ${i < product.intensityNumber ? 'bg-terracotta' : 'bg-heritageBlack/10'}`}></div>
+                   ))}
+                </div>
              </div>
           </div>
-          <p className="text-[9px] font-black uppercase tracking-[0.2em] text-heritageBlack/30">{product.roast}</p>
+          <div className="flex justify-between items-center">
+             <span className="text-[9px] font-black uppercase tracking-[0.2em] text-heritageBlack/40">Bean Type</span>
+             <span className="text-[9px] font-medium tracking-[0.05em] text-heritageBlack border-l-2 border-terracotta pl-2">
+               {product.beanType}
+             </span>
+          </div>
         </div>
       </div>
     </div>

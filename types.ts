@@ -12,10 +12,11 @@ export interface Product {
   price: number;
   originalPrice?: number;
   notes: string[];
-  roast: string;
+  roast?: string;
   beanType: string;
   intensityNumber: number;
   description: string;
+  shortDescription: string;
   origin: string;
   process: string;
   rating: number;
