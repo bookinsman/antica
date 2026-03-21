@@ -14,7 +14,6 @@ import { ALUMINIUM_MOKA_250G, BEANS_250G, MACINATO_MOKA_250G, PRODUCTS } from '.
 // Lazy load components that aren't immediately visible
 const SingleProductView = lazy(() => import('./components/SingleProductView'));
 const AboutPage = lazy(() => import('./components/AboutPage'));
-const BalticsB2BSection = lazy(() => import('./components/BalticsB2BSection'));
 const StandardOfExcellence = lazy(() => import('./components/StandardOfExcellence'));
 
 // Loading fallback component
@@ -153,9 +152,6 @@ const MainContent = () => {
         </Routes>
       </main>
 
-      <Suspense fallback={<LoadingFallback />}>
-        <BalticsB2BSection />
-      </Suspense>
       <Footer />
 
       {selectedProduct && (

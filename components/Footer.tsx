@@ -57,6 +57,16 @@ const Footer: React.FC = () => {
                   {t('preFooterShopBody')}
                 </p>
 
+                {/* Showroom Address */}
+                <div className="bg-white/80 rounded-md p-4 mb-4 border border-sage/10">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-sage mb-2">
+                    {t('visitOurShowroom')}
+                  </p>
+                  <p className="text-sm font-bold text-gray-900">Koliziejus - Domus Pro</p>
+                  <p className="text-sm text-gray-600">Ukmergės g. 308</p>
+                  <p className="text-sm text-gray-600">Vilnius, Lithuania, LT-12110</p>
+                </div>
+
                 <div className="bg-white/80 rounded-md p-4 mb-6 border border-sage/10">
                   <p className="text-xs font-black uppercase tracking-[0.2em] text-sage mb-2">
                     {t('officialStore')}
@@ -104,15 +114,42 @@ const Footer: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-600 leading-relaxed font-light mb-4">
+                <p className="text-sm text-gray-600 leading-relaxed font-light mb-6">
                   {t('b2bDescription')}
                 </p>
 
-                <div className="bg-white/80 rounded-md p-4 mb-6 border border-terracotta/10">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-terracotta mb-3">
-                    {t('b2bFor')}
+                {/* Showroom Address */}
+                <div className="bg-white/80 rounded-md p-4 mb-4 border border-terracotta/10">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-terracotta mb-2">
+                    {t('visitOurShowroom')}
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-700">
+                  <p className="text-sm font-bold text-gray-900">Domus Pro</p>
+                  <p className="text-sm text-gray-600">Ukmergės g. 308</p>
+                  <p className="text-sm text-gray-600">Vilnius, Lithuania, LT-12110</p>
+                </div>
+
+                {/* Contact Info */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  <div className="bg-white/80 rounded-md p-3 border border-terracotta/10">
+                    <p className="text-xs text-gray-500 mb-1">{t('b2bPhone')}</p>
+                    <a href="tel:+37065554319" className="text-sm font-bold text-terracotta hover:text-heritageBlack transition-colors">
+                      +370 655 54319
+                    </a>
+                  </div>
+                  <div className="bg-white/80 rounded-md p-3 border border-terracotta/10">
+                    <p className="text-xs text-gray-500 mb-1">{t('b2bContact')}</p>
+                    <a href="mailto:info@koliziejus.com" className="text-sm font-bold text-terracotta hover:text-heritageBlack transition-colors break-all">
+                      info@koliziejus.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Perfect For */}
+                <div className="bg-white/80 rounded-md p-4 mb-4 border border-terracotta/10">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-terracotta mb-3">
+                    {t('b2bPerfectFor')}
+                  </p>
+                  <ul className="grid grid-cols-2 gap-2 text-xs text-gray-700">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-terracotta rounded-full"></span>
                       {t('b2bCafes')}
@@ -127,16 +164,9 @@ const Footer: React.FC = () => {
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-terracotta rounded-full"></span>
-                      {t('b2bWholesale')}
+                      {t('b2bOffices')}
                     </li>
                   </ul>
-                </div>
-
-                <div className="bg-white/80 rounded-md p-4 mb-4 border border-terracotta/10">
-                  <p className="text-xs text-gray-500 italic mb-2">{t('b2bInquiryLine')}</p>
-                  <a href="mailto:info@koliziejus.com" className="text-base font-bold text-terracotta hover:text-heritageBlack transition-colors">
-                    info@koliziejus.com
-                  </a>
                 </div>
 
                 <a

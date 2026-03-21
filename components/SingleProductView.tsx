@@ -59,82 +59,82 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-end">
       <div className="absolute inset-0 bg-heritageBlack/50 backdrop-blur-xl" onClick={onClose} />
-      
-      <div className="relative w-full md:w-[90%] lg:w-[75%] h-full bg-paper overflow-y-auto custom-scrollbar animate-[slideInRight_0.6s_cubic-bezier(0.16, 1, 0.3, 1)]">
-        <button 
+
+      <div className="relative w-full h-full bg-paper overflow-y-auto custom-scrollbar animate-[slideInRight_0.6s_cubic-bezier(0.16, 1, 0.3, 1)]">
+        <button
           onClick={onClose}
-          className="absolute top-8 right-8 z-[110] text-heritageBlack hover:text-terracotta transition-colors text-2xl p-4"
+          className="fixed top-4 right-4 md:absolute md:top-8 md:right-8 z-[110] text-white md:text-heritageBlack hover:text-terracotta transition-colors text-2xl bg-heritageBlack/80 md:bg-transparent rounded-full w-10 h-10 md:w-auto md:h-auto flex items-center justify-center md:block"
         >
           ✕
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
-          <div className={`relative h-[30vh] sm:h-[35vh] lg:h-full bg-heritageBlack flex items-center justify-center p-4 sm:p-8 overflow-hidden`}>
-             <img 
-               src={product.image} 
-               alt={product.name} 
+        <div className="flex flex-col lg:grid lg:grid-cols-2 min-h-full">
+          <div className={`relative h-[35vh] md:h-[40vh] lg:h-auto bg-heritageBlack flex items-center justify-center p-6 md:p-8 overflow-hidden`}>
+             <img
+               src={product.image}
+               alt={product.name}
                className="w-full h-full object-contain opacity-90 scale-100 transition-transform hover:scale-105"
                decoding="async"
              />
              <div className="absolute inset-0 bg-gradient-to-t from-heritageBlack/30 via-transparent to-transparent"></div>
-             <div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8">
+             <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8">
                 <span className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.5em] text-terracotta mb-1 sm:mb-2 block">{t('triesteItaly')}</span>
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-black italic text-white">Caffè ATT</h3>
              </div>
           </div>
 
-          <div className="p-6 sm:p-8 md:p-10 lg:p-14 flex flex-col justify-center bg-white max-h-[100vh] overflow-y-auto">
+          <div className="p-5 sm:p-6 md:p-8 lg:p-12 xl:p-14 flex flex-col bg-white pb-24 md:pb-8">
             <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em] text-terracotta mb-3 sm:mb-4">{product.category}</span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-5 sm:mb-6 leading-tight pr-8">{product.name}</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-4 sm:mb-6 leading-tight break-words">{product.name}</h2>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed border-l-3 border-terracotta pl-4 sm:pl-5">
+            <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed border-l-4 border-terracotta pl-4 sm:pl-5 break-words">
               "{t(`product_${baseId}_description`)}"
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
               <div>
-                <h4 className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-2 sm:mb-4 text-gray-500">{t('coffeeDetails')}</h4>
-                <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+                <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-3 sm:mb-4 text-gray-500">{t('coffeeDetails')}</h4>
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
                   <div>
-                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">{t('flavorNotes')}</span>
-                    <div className="flex flex-wrap gap-1 sm:gap-2">
+                    <span className="text-xs font-bold uppercase text-terracotta block mb-2">{t('flavorNotes')}</span>
+                    <div className="flex flex-wrap gap-2">
                       {product.notes.map(note => (
-                        <span key={note} className="text-xs sm:text-sm text-gray-700">
+                        <span key={note} className="text-sm sm:text-base text-gray-700 break-words">
                           {t(`flavorNote_${note}`)}
                         </span>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">{t('intensity')}</span>
+                    <span className="text-xs font-bold uppercase text-terracotta block mb-2">{t('intensity')}</span>
                     <div className="flex items-center space-x-2">
-                      <span className="text-gray-700 font-medium">{product.intensityNumber}/10</span>
+                      <span className="text-gray-700 font-medium text-sm">{product.intensityNumber}/10</span>
                       <div className="flex space-x-0.5">
                          {[...Array(10)].map((_, i) => (
-                           <div key={i} className={`w-1.5 h-3 ${i < product.intensityNumber ? 'bg-terracotta' : 'bg-gray-300'}`}></div>
+                           <div key={i} className={`w-2 h-4 ${i < product.intensityNumber ? 'bg-terracotta' : 'bg-gray-300'}`}></div>
                          ))}
                       </div>
                     </div>
                   </div>
                   <div>
-                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">{t('beanType')}</span>
-                    <span className="text-gray-700 font-medium border-l-2 border-terracotta pl-3">
+                    <span className="text-xs font-bold uppercase text-terracotta block mb-2">{t('beanType')}</span>
+                    <span className="text-gray-700 font-medium border-l-2 border-terracotta pl-3 text-sm break-words block">
                       {t(`beanType_${baseId}`)}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">{t('terroir')}</span>
-                    <span className="text-gray-700">{product.origin}</span>
+                    <span className="text-xs font-bold uppercase text-terracotta block mb-2">{t('terroir')}</span>
+                    <span className="text-gray-700 text-sm break-words block">{product.origin}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">{t('process')}</span>
-                    <span className="text-gray-700">{product.process}</span>
+                    <span className="text-xs font-bold uppercase text-terracotta block mb-2">{t('process')}</span>
+                    <span className="text-gray-700 text-sm break-words block">{product.process}</span>
                   </div>
                 </div>
               </div>
-              
+
               <div>
-                <h4 className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-2 sm:mb-4 text-gray-500">{t('profile')}</h4>
+                <h4 className="text-xs font-medium uppercase tracking-[0.15em] mb-3 sm:mb-4 text-gray-500">{t('profile')}</h4>
                 <SensoryBar label={t('bitterness')} value={product.profile.bitterness} max={100} />
                 <SensoryBar label={t('acidity')} value={product.profile.acidity} max={100} />
                 <SensoryBar label={t('sweetness')} value={product.profile.sweetness} max={100} />
