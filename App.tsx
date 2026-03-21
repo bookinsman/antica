@@ -10,6 +10,7 @@ import Marquee from './components/Marquee';
 import AboutPage from './components/AboutPage';
 import Hero from './components/Hero';
 import BalticsB2BSection from './components/BalticsB2BSection';
+import StandardOfExcellence from './components/StandardOfExcellence';
 import { LanguageProvider, useLanguage } from './LanguageContext';
 import { Product } from './types';
 import { ALUMINIUM_MOKA_250G, BEANS_250G, MACINATO_MOKA_250G, PRODUCTS } from './constants';
@@ -125,6 +126,8 @@ const MainContent = () => {
 
                                       </div>
                 </section>
+
+                <StandardOfExcellence />
               </div>
             </>
           } />
