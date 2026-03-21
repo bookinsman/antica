@@ -1,12 +1,15 @@
 import React from 'react';
+import { useLanguage } from '../LanguageContext';
 
 const StandardOfExcellence: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-4xl md:text-6xl font-serif font-black italic mb-6 tracking-tighter text-heritageBlack">
-            The Standard of Excellence
+            {t('standardTitle')}
           </h2>
         </div>
 
@@ -14,11 +17,10 @@ const StandardOfExcellence: React.FC = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-xl md:text-2xl font-serif font-black mb-4 text-terracotta border-l-2 border-terracotta pl-4">
-                Global Sourcing
+                {t('globalSourcingTitle')}
               </h3>
               <p className="text-sm md:text-base leading-relaxed text-heritageBlack/70">
-                The company crafts its premium blends using exclusively selected beans from world's most renowned coffee regions: 
-                South America, Central America, Africa, and Southeast Asia.
+                {t('globalSourcingBody')}
               </p>
             </div>
           </div>
@@ -26,12 +28,10 @@ const StandardOfExcellence: React.FC = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-xl md:text-2xl font-serif font-black mb-4 text-terracotta border-l-2 border-terracotta pl-4">
-                The NY2 Quality Benchmark
+                {t('ny2QualityTitle')}
               </h3>
               <p className="text-sm md:text-base leading-relaxed text-heritageBlack/70">
-                Every origin is strictly classified as NY2, the highest commercial grade available, ensuring a nearly flawless 
-                bean selection. To guarantee a perfect, consistent extraction, the company utilizes only large-caliber beans 
-                with a professional screen size of 17 to 18.
+                {t('ny2QualityBody')}
               </p>
             </div>
           </div>

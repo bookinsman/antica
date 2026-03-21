@@ -12,6 +12,29 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
   const { t } = useLanguage();
 
+  // Map variant product IDs to base product IDs for translations
+  const getBaseProductId = (id: string): string => {
+    // 250g BEANS variants
+    if (id === '250-4') return '4'; // Organic BIO/BIOLOGICO
+    if (id === '250-3') return '3'; // Buonissimo
+    if (id === '250-1') return '1'; // Nessun Dorma
+    if (id === '250-2') return '2'; // Risvegli
+
+    // ALUMINIUM MOKA variants
+    if (id === 'al-moka-1') return '2'; // Risvegli
+    if (id === 'al-moka-2') return '1'; // Nessun Dorma
+    if (id === 'al-moka-3') return '4'; // Organic BIO/BIOLOGICO
+
+    // MACINATO MOKA variants
+    if (id === 'moka-4') return '4'; // Organic BIO/BIOLOGICO
+    if (id === 'moka-1') return '1'; // Nessun Dorma
+    if (id === 'moka-2') return '2'; // Risvegli
+
+    return id; // Return original ID for base products
+  };
+
+  const baseId = getBaseProductId(product.id);
+
   return (
     <div className="group flex flex-col h-full bg-paper hover:bg-white transition-all duration-700 cursor-pointer overflow-hidden" onClick={onSelect}>
       <div className={`relative aspect-[4/5] overflow-hidden ${product.accentColor} p-4`}>
@@ -46,12 +69,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
         </h3>
         
         <p className="text-[10px] leading-relaxed text-heritageBlack/60 mb-6 line-clamp-2">
-          {product.shortDescription}
+          {t(`product_${baseId}_shortDescription`)}
         </p>
-        
+
         <div className="mt-auto pt-6 border-t border-heritageBlack/5 space-y-3">
           <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-black">
-             <span className="text-heritageBlack/40">Intensity</span>
+             <span className="text-heritageBlack/40">{t('intensity')}</span>
              <div className="flex items-center space-x-2">
                 <span className="text-heritageBlack">{product.intensityNumber}/10</span>
                 <div className="flex space-x-0.5">
@@ -62,9 +85,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
              </div>
           </div>
           <div className="flex justify-between items-center">
-             <span className="text-[9px] font-black uppercase tracking-[0.2em] text-heritageBlack/40">Bean Type</span>
+             <span className="text-[9px] font-black uppercase tracking-[0.2em] text-heritageBlack/40">{t('beanType')}</span>
              <span className="text-[9px] font-medium tracking-[0.05em] text-heritageBlack border-l-2 border-terracotta pl-2">
-               {product.beanType}
+               {t(`beanType_${baseId}`)}
              </span>
           </div>
         </div>

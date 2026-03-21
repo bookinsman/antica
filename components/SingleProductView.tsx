@@ -11,6 +11,29 @@ interface SingleProductViewProps {
 const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose }) => {
   const { t } = useLanguage();
 
+  // Map variant product IDs to base product IDs for translations
+  const getBaseProductId = (id: string): string => {
+    // 250g BEANS variants
+    if (id === '250-4') return '4'; // Organic BIO/BIOLOGICO
+    if (id === '250-3') return '3'; // Buonissimo
+    if (id === '250-1') return '1'; // Nessun Dorma
+    if (id === '250-2') return '2'; // Risvegli
+
+    // ALUMINIUM MOKA variants
+    if (id === 'al-moka-1') return '2'; // Risvegli
+    if (id === 'al-moka-2') return '1'; // Nessun Dorma
+    if (id === 'al-moka-3') return '4'; // Organic BIO/BIOLOGICO
+
+    // MACINATO MOKA variants
+    if (id === 'moka-4') return '4'; // Organic BIO/BIOLOGICO
+    if (id === 'moka-1') return '1'; // Nessun Dorma
+    if (id === 'moka-2') return '2'; // Risvegli
+
+    return id; // Return original ID for base products
+  };
+
+  const baseId = getBaseProductId(product.id);
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = 'auto'; };
@@ -37,7 +60,7 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
     <div className="fixed inset-0 z-[100] flex items-center justify-end">
       <div className="absolute inset-0 bg-heritageBlack/50 backdrop-blur-xl" onClick={onClose} />
       
-      <div className="relative w-full md:w-[85%] lg:w-[70%] h-full bg-paper overflow-y-auto custom-scrollbar animate-[slideInRight_0.6s_cubic-bezier(0.16, 1, 0.3, 1)]">
+      <div className="relative w-full md:w-[90%] lg:w-[75%] h-full bg-paper overflow-y-auto custom-scrollbar animate-[slideInRight_0.6s_cubic-bezier(0.16, 1, 0.3, 1)]">
         <button 
           onClick={onClose}
           className="absolute top-8 right-8 z-[110] text-heritageBlack hover:text-terracotta transition-colors text-2xl p-4"
@@ -60,30 +83,30 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
              </div>
           </div>
 
-          <div className="p-4 sm:p-6 md:p-8 lg:p-12 lg:p-16 flex flex-col justify-center bg-white max-h-[100vh] overflow-y-auto">
-            <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em] text-terracotta mb-2 sm:mb-4">{product.category}</span>
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-4 sm:mb-6 leading-tight">{product.name}</h2>
-            
-            <p className="text-xs sm:text-sm md:text-base text-gray-700 mb-4 sm:mb-8 leading-relaxed border-l-2 sm:border-l-3 border-terracotta pl-3 sm:pl-4">
-              "{product.description}"
+          <div className="p-6 sm:p-8 md:p-10 lg:p-14 flex flex-col justify-center bg-white max-h-[100vh] overflow-y-auto">
+            <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em] text-terracotta mb-3 sm:mb-4">{product.category}</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-5 sm:mb-6 leading-tight pr-8">{product.name}</h2>
+
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed border-l-3 border-terracotta pl-4 sm:pl-5">
+              "{t(`product_${baseId}_description`)}"
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
               <div>
-                <h4 className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-2 sm:mb-4 text-gray-500">Coffee Details</h4>
+                <h4 className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-2 sm:mb-4 text-gray-500">{t('coffeeDetails')}</h4>
                 <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                   <div>
-                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">Flavor Notes</span>
+                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">{t('flavorNotes')}</span>
                     <div className="flex flex-wrap gap-1 sm:gap-2">
                       {product.notes.map(note => (
                         <span key={note} className="text-xs sm:text-sm text-gray-700">
-                          {note}
+                          {t(`flavorNote_${note}`)}
                         </span>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">Intensity</span>
+                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">{t('intensity')}</span>
                     <div className="flex items-center space-x-2">
                       <span className="text-gray-700 font-medium">{product.intensityNumber}/10</span>
                       <div className="flex space-x-0.5">
@@ -94,9 +117,9 @@ const SingleProductView: React.FC<SingleProductViewProps> = ({ product, onClose 
                     </div>
                   </div>
                   <div>
-                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">Bean Type</span>
+                    <span className="text-[10px] sm:text-xs font-medium uppercase text-terracotta block mb-1">{t('beanType')}</span>
                     <span className="text-gray-700 font-medium border-l-2 border-terracotta pl-3">
-                      {product.beanType}
+                      {t(`beanType_${baseId}`)}
                     </span>
                   </div>
                   <div>

@@ -1,19 +1,31 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ProductGrid from './components/ProductGrid';
 import Footer from './components/Footer';
-import SingleProductView from './components/SingleProductView';
 import AnnouncementBar from './components/AnnouncementBar';
 import Marquee from './components/Marquee';
-import AboutPage from './components/AboutPage';
 import Hero from './components/Hero';
-import BalticsB2BSection from './components/BalticsB2BSection';
-import StandardOfExcellence from './components/StandardOfExcellence';
 import { LanguageProvider, useLanguage } from './LanguageContext';
 import { Product } from './types';
 import { ALUMINIUM_MOKA_250G, BEANS_250G, MACINATO_MOKA_250G, PRODUCTS } from './constants';
+
+// Lazy load components that aren't immediately visible
+const SingleProductView = lazy(() => import('./components/SingleProductView'));
+const AboutPage = lazy(() => import('./components/AboutPage'));
+const BalticsB2BSection = lazy(() => import('./components/BalticsB2BSection'));
+const StandardOfExcellence = lazy(() => import('./components/StandardOfExcellence'));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-[200px]">
+    <div className="animate-pulse flex flex-col items-center gap-3">
+      <div className="w-12 h-12 border-4 border-terracotta/20 border-t-terracotta rounded-full animate-spin"></div>
+      <p className="text-xs font-black uppercase tracking-wider text-gray-400">Loading...</p>
+    </div>
+  </div>
+);
 
 const MainContent = () => {
   const { t } = useLanguage();
@@ -127,23 +139,33 @@ const MainContent = () => {
                                       </div>
                 </section>
 
-                <StandardOfExcellence />
+                <Suspense fallback={<LoadingFallback />}>
+                  <StandardOfExcellence />
+                </Suspense>
               </div>
             </>
           } />
-          <Route path="/about" element={<AboutPage />} />
+          <Route path="/about" element={
+            <Suspense fallback={<LoadingFallback />}>
+              <AboutPage />
+            </Suspense>
+          } />
         </Routes>
       </main>
 
-      <BalticsB2BSection />
+      <Suspense fallback={<LoadingFallback />}>
+        <BalticsB2BSection />
+      </Suspense>
       <Footer />
-      
+
       {selectedProduct && (
-        <SingleProductView 
-          product={selectedProduct} 
-          onClose={() => setSelectedProduct(null)} 
-          onAddToCart={() => {}}
-        />
+        <Suspense fallback={<LoadingFallback />}>
+          <SingleProductView
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+            onAddToCart={() => {}}
+          />
+        </Suspense>
       )}
     </div>
   );

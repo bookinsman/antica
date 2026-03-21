@@ -37,22 +37,29 @@ const Navbar: React.FC = () => {
             </div>
           </div>
           
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-3">
-              {(['EN'] as Language[]).map(lang => (
-                <button 
+          <div className="flex items-center space-x-4 md:space-x-6">
+            {/* Language Selector - More Visible */}
+            <div className="flex items-center gap-1 bg-sage/10 border border-sage/20 rounded-lg p-1">
+              {(['LT', 'EN', 'RU'] as Language[]).map(lang => (
+                <button
                   key={lang}
                   onClick={() => setLanguage(lang)}
-                  className={`text-[9px] font-black tracking-widest px-2 py-1 ${language === lang ? 'text-terracotta' : 'text-heritageBlack/30 hover:text-heritageBlack'}`}
+                  className={`text-[10px] md:text-xs font-black tracking-wider px-3 py-1.5 rounded-md transition-all duration-200 ${
+                    language === lang
+                      ? 'bg-terracotta text-white shadow-sm'
+                      : 'text-heritageBlack/50 hover:text-heritageBlack hover:bg-white/50'
+                  }`}
+                  title={lang === 'LT' ? 'Lietuvių' : lang === 'EN' ? 'English' : 'Русский'}
                 >
                   {lang}
                 </button>
               ))}
             </div>
-            
-            <button 
+
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2"
+              aria-label="Toggle menu"
             >
               <div className="w-6 h-0.5 bg-heritageBlack mb-1.5"></div>
               <div className="w-4 h-0.5 bg-heritageBlack ml-auto"></div>
@@ -67,6 +74,26 @@ const Navbar: React.FC = () => {
           <button type="button" className="block text-3xl font-serif font-black italic w-full" onClick={() => { setIsMenuOpen(false); goToSection('shop'); }}>{t('navCollections')}</button>
           <button type="button" className="block text-3xl font-serif font-black italic w-full" onClick={() => { setIsMenuOpen(false); goToSection('b2b'); }}>{t('navB2b')}</button>
           <Link to="/about" className="block text-3xl font-serif font-black italic" onClick={() => setIsMenuOpen(false)}>{t('navAbout')}</Link>
+
+          {/* Mobile Language Selector */}
+          <div className="pt-6 border-t border-heritageBlack/10">
+            <p className="text-xs uppercase tracking-wider font-black text-gray-400 mb-3">{t('selectLanguage')}</p>
+            <div className="flex items-center justify-center gap-2">
+              {(['LT', 'EN', 'RU'] as Language[]).map(lang => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className={`text-sm font-black tracking-wider px-6 py-3 rounded-lg transition-all duration-200 ${
+                    language === lang
+                      ? 'bg-terracotta text-white shadow-md'
+                      : 'bg-sage/10 text-heritageBlack/50 hover:text-heritageBlack hover:bg-sage/20'
+                  }`}
+                >
+                  {lang === 'LT' ? 'LT' : lang === 'EN' ? 'EN' : 'RU'}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </nav>
