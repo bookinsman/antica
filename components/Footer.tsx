@@ -118,14 +118,55 @@ const Footer: React.FC = () => {
                   {t('b2bDescription')}
                 </p>
 
-                {/* Showroom Address */}
-                <div className="bg-white/80 rounded-md p-4 mb-4 border border-terracotta/10">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-terracotta mb-2">
-                    {t('visitOurShowroom')}
-                  </p>
-                  <p className="text-sm font-bold text-gray-900">Domus Pro</p>
-                  <p className="text-sm text-gray-600">Ukmergės g. 308</p>
-                  <p className="text-sm text-gray-600">Vilnius, Lithuania, LT-12110</p>
+                {/* Business Benefits */}
+                <div className="grid grid-cols-1 gap-3 mb-6">
+                  <div className="bg-white/80 rounded-md p-4 border border-terracotta/10">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                      </svg>
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-wider text-terracotta mb-1">
+                          {t('b2bBenefitPricing')}
+                        </p>
+                        <p className="text-xs text-gray-600 font-light">
+                          {t('b2bBenefitPricingDesc')}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/80 rounded-md p-4 border border-terracotta/10">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                      </svg>
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-wider text-terracotta mb-1">
+                          {t('b2bBenefitVolume')}
+                        </p>
+                        <p className="text-xs text-gray-600 font-light">
+                          {t('b2bBenefitVolumeDesc')}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/80 rounded-md p-4 border border-terracotta/10">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-terracotta flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-wider text-terracotta mb-1">
+                          {t('b2bBenefitQuality')}
+                        </p>
+                        <p className="text-xs text-gray-600 font-light">
+                          {t('b2bBenefitQualityDesc')}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Contact Info */}
