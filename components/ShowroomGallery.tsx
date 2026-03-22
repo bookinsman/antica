@@ -143,22 +143,6 @@ const ShowroomGallery: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* CTA */}
-        <div className="text-center mt-10 md:mt-12">
-          <a
-            href="https://koliziejus.com/produkto-kategorija/kava/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-terracotta hover:bg-heritageBlack text-white text-sm font-black uppercase tracking-wider rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            {t('visitShowroomCta')}
-          </a>
-        </div>
       </div>
     </section>
   );
