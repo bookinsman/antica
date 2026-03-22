@@ -61,6 +61,21 @@ const MainContent = () => {
               <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 border-x border-heritageBlack/10">
                 <section id="shop" className="py-16 md:py-28 border-b border-heritageBlack/10">
                   <div className="mb-16 md:mb-20 text-center">
+                    {/* Premium Badge */}
+                    <div className="flex justify-center mb-8">
+                      <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-terracotta to-mustard text-white rounded-full shadow-lg">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span className="text-xs md:text-sm font-black uppercase tracking-[0.2em]">
+                          {t('premiumBadge')}
+                        </span>
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                      </div>
+                    </div>
+
                     <h2 className="text-6xl md:text-8xl font-serif font-black italic mb-6 tracking-tighter">
                       {t('seasonalRoasts')}
                     </h2>
