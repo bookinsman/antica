@@ -59,34 +59,34 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
         </div>
       </div>
       
-      <div className="p-8 flex flex-col flex-grow">
-        <span className="text-[9px] font-black uppercase tracking-[0.3em] text-terracotta mb-3">
+      <div className="p-4 sm:p-6 md:p-8 flex flex-col flex-grow">
+        <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-terracotta mb-2">
           {product.category}
         </span>
 
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-black group-hover:text-terracotta transition-colors leading-tight mb-3 tracking-tight break-words">
+        <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-black group-hover:text-terracotta transition-colors leading-tight mb-2 sm:mb-3 tracking-tight break-words">
           {product.name}
         </h3>
-        
-        <p className="text-[10px] leading-relaxed text-heritageBlack/60 mb-6 line-clamp-2">
+
+        <p className="text-[9px] sm:text-[10px] leading-relaxed text-heritageBlack/60 mb-4 sm:mb-6 line-clamp-3 break-words">
           {t(`product_${baseId}_shortDescription`)}
         </p>
 
-        <div className="mt-auto pt-6 border-t border-heritageBlack/5 space-y-3">
-          <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-black">
+        <div className="mt-auto pt-4 sm:pt-6 border-t border-heritageBlack/5 space-y-2 sm:space-y-3">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-[9px] sm:text-[10px] uppercase tracking-wider font-black">
              <span className="text-heritageBlack/40">{t('intensity')}</span>
-             <div className="flex items-center space-x-2">
-                <span className="text-heritageBlack">{product.intensityNumber}/10</span>
-                <div className="flex space-x-0.5">
+             <div className="flex items-center gap-2">
+                <span className="text-heritageBlack text-xs sm:text-sm">{product.intensityNumber}/10</span>
+                <div className="flex gap-0.5">
                    {[...Array(10)].map((_, i) => (
-                     <div key={i} className={`w-1.5 h-3 ${i < product.intensityNumber ? 'bg-terracotta' : 'bg-heritageBlack/10'}`}></div>
+                     <div key={i} className={`w-1 sm:w-1.5 h-2.5 sm:h-3 ${i < product.intensityNumber ? 'bg-terracotta' : 'bg-heritageBlack/10'}`}></div>
                    ))}
                 </div>
              </div>
           </div>
-          <div className="flex justify-between items-center">
-             <span className="text-[9px] font-black uppercase tracking-[0.2em] text-heritageBlack/40">{t('beanType')}</span>
-             <span className="text-[9px] font-medium tracking-[0.05em] text-heritageBlack border-l-2 border-terracotta pl-2">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
+             <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] text-heritageBlack/40">{t('beanType')}</span>
+             <span className="text-[8px] sm:text-[9px] font-medium tracking-[0.05em] text-heritageBlack sm:border-l-2 border-terracotta sm:pl-2 break-words">
                {t(`beanType_${baseId}`)}
              </span>
           </div>

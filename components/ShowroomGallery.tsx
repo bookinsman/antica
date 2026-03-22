@@ -65,6 +65,8 @@ const ShowroomGallery: React.FC = () => {
                     alt={t(image.alt)}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
+                    fetchPriority={index === 0 ? "high" : "low"}
                   />
                 </div>
               ))}
@@ -138,6 +140,8 @@ const ShowroomGallery: React.FC = () => {
                   alt={t(image.alt)}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                   loading="lazy"
+                  decoding="async"
+                  fetchPriority={index === 0 ? "high" : "low"}
                 />
               </div>
             </div>
