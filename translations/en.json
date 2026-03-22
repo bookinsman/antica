@@ -230,5 +230,13 @@
   "flavorNote_vanilla": "vanilla",
   "flavorNote_chocolate": "chocolate",
   "flavorNote_structured acidity": "structured acidity",
-  "flavorNote_spices": "spices"
+  "flavorNote_spices": "spices",
+
+  "showroomKicker": "Visit Us in Vilnius",
+  "showroomTitle": "Discover Our Showroom",
+  "showroomDescription": "Visit our showroom in Vilnius. Browse our full collection and get expert advice.",
+  "showroomImage1": "Showroom Interior View",
+  "showroomImage2": "Coffee Display Area",
+  "showroomImage3": "Showroom View",
+  "visitShowroomCta": "Visit Our Showroom"
 }

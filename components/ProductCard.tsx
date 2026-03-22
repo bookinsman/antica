@@ -64,7 +64,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
           {product.category}
         </span>
 
-        <h3 className="text-2xl sm:text-3xl font-serif font-black group-hover:text-terracotta transition-colors leading-tight mb-3 tracking-tight break-words">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-black group-hover:text-terracotta transition-colors leading-tight mb-3 tracking-tight break-words">
           {product.name}
         </h3>
         

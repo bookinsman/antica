@@ -232,5 +232,13 @@
   "flavorNote_vanilla": "vanilė",
   "flavorNote_chocolate": "šokoladas",
   "flavorNote_structured acidity": "struktūrinis rūgštumas",
-  "flavorNote_spices": "prieskoniai"
+  "flavorNote_spices": "prieskoniai",
+
+  "showroomKicker": "Aplankykite mus Vilniuje",
+  "showroomTitle": "Atraskite mūsų parduotuvę",
+  "showroomDescription": "Aplankykite mūsų parduotuvę Vilniuje. Peržiūrėkite visą kolekciją ir gaukite ekspertų patarimus.",
+  "showroomImage1": "Parduotuvės vaizdas",
+  "showroomImage2": "Kavos ekspozicija",
+  "showroomImage3": "Parduotuvės interjeras",
+  "visitShowroomCta": "Aplankykite parduotuvę"
 }

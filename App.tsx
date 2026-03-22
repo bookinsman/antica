@@ -15,6 +15,7 @@ import { ALUMINIUM_MOKA_250G, BEANS_250G, MACINATO_MOKA_250G, PRODUCTS } from '.
 const SingleProductView = lazy(() => import('./components/SingleProductView'));
 const AboutPage = lazy(() => import('./components/AboutPage'));
 const StandardOfExcellence = lazy(() => import('./components/StandardOfExcellence'));
+const ShowroomGallery = lazy(() => import('./components/ShowroomGallery'));
 
 // Loading fallback component
 const LoadingFallback = () => (
@@ -142,6 +143,10 @@ const MainContent = () => {
                   <StandardOfExcellence />
                 </Suspense>
               </div>
+
+              <Suspense fallback={<LoadingFallback />}>
+                <ShowroomGallery />
+              </Suspense>
             </>
           } />
           <Route path="/about" element={

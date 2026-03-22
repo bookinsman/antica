@@ -230,5 +230,13 @@
   "flavorNote_vanilla": "ваниль",
   "flavorNote_chocolate": "шоколад",
   "flavorNote_structured acidity": "структурная кислотность",
-  "flavorNote_spices": "специи"
+  "flavorNote_spices": "специи",
+
+  "showroomKicker": "Посетите нас в Вильнюсе",
+  "showroomTitle": "Откройте наш магазин",
+  "showroomDescription": "Посетите наш магазин в Вильнюсе. Ознакомьтесь с полной коллекцией и получите экспертные советы.",
+  "showroomImage1": "Вид магазина",
+  "showroomImage2": "Экспозиция кофе",
+  "showroomImage3": "Интерьер магазина",
+  "visitShowroomCta": "Посетите магазин"
 }
